@@ -18,7 +18,7 @@ export class InmuebleComponent implements OnInit {
   getInmuebles(): void{    
     this.inmuebleService.getInmuebles().subscribe(response => {
        this.inmuebles = response; 
-       console.log(response);
+       console.log(this.inmuebles);
     });
 
 

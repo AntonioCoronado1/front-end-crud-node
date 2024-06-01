@@ -24,7 +24,7 @@ export class DetalleInmuebleComponent  implements OnInit {
        if(id){
          this.inmuebleService.getInmueble(String(id)).subscribe(inmueble=>{
             this.inmuebles=inmueble;
-            console.log(inmueble);
+            console.log(this.inmuebles);
          })
        }
     }) 
