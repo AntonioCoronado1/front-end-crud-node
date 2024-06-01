@@ -1,0 +1,21 @@
+<div class="card border-primary mb3">
+    <div class="card-header">Inmuebles</div>
+    <div class="card-body text-primary">
+       <h5 class="card-title">Detalle del Inmueble</h5>
+      <div class="my-2 text-left">
+        <button type="button" routerLink='/inmuebles' class="btn btn-danger m-2">Volver</button>       
+      </div>
+      
+      <div class="form-group row" >
+        <div class="form-group row">
+            <label for="nombre" class="col-form-label colm-sm-2">Descripcion</label>
+             <div class="col-sm-6">            
+                 <input type="text" class="form-control" [(ngModel)]="inmuebles.descripcion" id="descripcion" name="descripcion"  required style="width: 500px;">
+              </div>
+          </div>
+          <label for="nombre" class="col-form-label colm-sm-2">Direcion</label>
+          <label for="nombre" class="col-form-label colm-sm-2">Superficie</label>
+      </div>
+      
+    </div>
+    </div>

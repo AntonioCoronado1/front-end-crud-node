@@ -1,0 +1,45 @@
+<div class="card border-primary mb3">
+    <div class="card-header">Inmuebles</div>
+    <div class="card-body text-primary">
+       <h5 class="card-title">Listado de Inmuebles</h5>
+      <div class="my-2 text-left">
+        <button type="button" routerLink='/inmuebles/form' class="btn btn-success">Crear</button>       
+      </div>
+      <div *ngIf="inmuebles?.length==0" class="alert alert-info">
+       No hay registros en la base de datos!
+      </div>
+      <table class="table table-border table-hover text-primary">
+        <thead>
+           <tr>
+              <th></th>
+              
+              <th>Descricion</th>
+              <th>Direccion</th>
+              <th>Estado</th>
+              <th>Superficie M2</th>
+              <th>Tipo Inmueble</th>
+              <th>Precio de Venta</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+           </tr>
+        </thead>
+        <tbody>      
+            <tr *ngFor="let inmueble of inmuebles">
+               <td><button type="button" [routerLink]="['/inmuebles',inmueble._id]" class="btn btn-info" >Ver</button></td>
+
+            
+            <td>{{inmueble.descripcion}}</td>
+            <td>{{inmueble.direccion}}</td>
+            <td>{{inmueble.estado}}</td>
+            <td>{{inmueble.superficie}}</td>
+            <td>{{inmueble.tipo}}</td>
+            <td>{{inmueble.precio_venta}}</td>
+            
+            <td><button type="button" class="btn btn-success" >Actualizar</button></td>
+            <td><button type="button" class="btn btn-danger" >Elminar</button></td>
+           </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    </div>

@@ -1,0 +1,76 @@
+<ul class="alert alert-danger" *ngIf="errores.length > 0">
+    <li *ngFor="let err of errores">
+      {{ err }}
+    </li>
+  </ul>
+  <div class="card bg-dark text-white my-2"   style="width: 50%; margin: auto auto;"> 
+     <div class="card-header">{{titulo}}</div>
+     <div class="card-body">
+      <form #inmuebleForm="ngForm">
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label colm-sm-2">Descripcion</label>
+           <div class="col-sm-6">            
+               <input type="text" class="form-control" [(ngModel)]="inmueble.descripcion" id="descripcion" name="descripcion"  required style="width: 500px;">
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label colm-sm-2">Direccion</label>
+           <div class="col-sm-6"> 
+             <input type="text" class="form-control" [(ngModel)]="inmueble.direccion" name="direccion"  required style="width: 500px;">            
+           </div>
+        </div>     
+        <div class="form-group row">
+          <label for="superficie" class="col-form-label colm-sm-2">Superficie</label>
+           <div class="col-sm-6">            
+            <input type="number" class="form-control" [(ngModel)]="inmueble.superficie" name="superficie"  required style="width: 500px;">          
+           </div>
+        </div> 
+        <div class="form-group row">
+            <label for="tipo" class="col-form-label colm-sm-2">Tipo de inmueble</label>
+             <div class="col-sm-6">            
+                 <select  class="form-control" [(ngModel)]="inmueble.tipo" name="tipo" style="width: 500px;">
+                   <option value="">---Seleccionar un tipo----</option>
+                   <option value="PISO NUEVO"> Piso nuevo </option>
+                   <option value="PISO DE OCASION"> Piso de ocasion </option>
+                   <option value="VILLA"> Villa </option>
+                   <option value="CASA"> Casa </option>
+                   <option value="LOCAL"> Local </option>
+                 </select>
+             </div>
+          </div>
+          <div class="form-group row">
+            <label for="estado" class="col-form-label colm-sm-2">Estado</label>
+             <div class="col-sm-6">            
+                 <select  class="form-control" [(ngModel)]="inmueble.estado" name="estado" style="width: 500px;">
+                   <option value="">---Seleccionar un estado----</option>
+                   <option value="VENTA"> Venta </option>
+                   <option value="ALQUILER"> Alquiler </option>
+                   <option value="VENTA O ALQUILER"> Venta o alquiler </option>
+                 </select>
+             </div>
+          </div>
+          <div class="form-group row">
+            <label for="nom_propietario" class="col-form-label colm-sm-2">Nombre del propietario</label>
+             <div class="col-sm-6">            
+              <input type="text" class="form-control" [(ngModel)]="inmueble.nom_propietario" name="nom_propietario"  required style="width: 500px;">          
+             </div>
+          </div> 
+          <div class="form-group row">
+            <label for="superficie" class="col-form-label colm-sm-2">Telefono del propietario</label>
+             <div class="col-sm-6">            
+              <input type="number" class="form-control" [(ngModel)]="inmueble.tel_propietario" name="tel_propietario"  required style="width: 500px;">          
+             </div>
+          </div>
+
+
+        
+        <div class="form-group my-3 row">
+          <div class="col-sm-6">
+            <button class="btn btn-primary " role="button" (click)='create()' [disabled]="!inmuebleForm.form.valid" routerLink='/inmuebles'>Crear</button>
+            <button class="btn btn-danger m-2"  role="button" routerLink='/inmuebles'>Cancelar</button>
+          </div>
+        </div>
+      </form>
+  
+     </div>  
+  </div>
