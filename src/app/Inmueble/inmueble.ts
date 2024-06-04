@@ -1,5 +1,6 @@
 export interface Inmueble{
     _id?: string;
+    referencia?: number;
     descripcion?: string;
     direccion?: string;
     superficie?: number;

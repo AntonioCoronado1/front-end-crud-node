@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InmuebleService } from './inmueble.service';
+import { VisitaService } from '../Visita/visita.service';
+import { Visita } from '../Visita/visita';
 import { Inmueble } from './inmueble';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,25 +12,39 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DetalleInmuebleComponent  implements OnInit {
   title = 'Inmueble';     
-  inmuebles: Inmueble={};
+  inmuebles: Inmueble[]=[];
+  visitas: Visita[]=[];
   constructor(private inmuebleService: InmuebleService,
+    private visitaService: VisitaService,
     private router: Router,
     private activatedRouter: ActivatedRoute
   ) { }
   ngOnInit(): void {
-    this.getCargarInmueble()
+    this.getCargarInmueble(),
+    this.getVisitas()
   }
   getCargarInmueble(): void{
     this.activatedRouter.paramMap.subscribe(params=>{
       let id=params.get('id');
        if(id){
-         this.inmuebleService.getInmueble(String(id)).subscribe(inmueble=>{
+         this.inmuebleService.getInmuebleById(Number(id)).subscribe(inmueble=>{
             this.inmuebles=inmueble;
-            console.log(this.inmuebles);
+            
          })
        }
     }) 
 
+  }
+  getVisitas(): void{
+    this.activatedRouter.paramMap.subscribe(params=>{
+      let id=params.get('id');
+       if(id){
+         this.visitaService.getVisitas(Number(id)).subscribe(visita=>{
+            this.visitas=visita;
+            console.log(this.visitas);
+         })
+       }
+    })
   }
   
 

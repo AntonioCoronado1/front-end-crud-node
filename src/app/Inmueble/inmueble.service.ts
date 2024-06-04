@@ -15,13 +15,12 @@ export class InmuebleService {
   private urlApi: string ="";
 
   constructor(private http: HttpClient,
-    private router: Router
-  ){
+    private router: Router){
      this.urlApi = environment.apiUrl+'/api';
    }
+
    getInmuebles(): Observable<Inmueble[]> {
-    return this.http.get<Inmueble[]>(this.urlApi + '/inmuebles').pipe(
-      map((response: any) => response.inmuebles));
+    return this.http.get<Inmueble[]>(this.urlApi + '/inmuebles');
   }
   create(inmueble: Inmueble): Observable<Inmueble>{
     return this.http.post<Inmueble>(`${this.urlApi}/inmuebles`, inmueble).pipe(
@@ -37,15 +36,24 @@ export class InmuebleService {
        })
     );
   }
-  getInmueble(id: String): Observable<Inmueble>{    
-    return this.http.get<Inmueble>(`${this.urlApi}/inmuebles/${id}`).pipe( map((response: any) => response.inmuebles),
-      catchError(e=>{
-        if(e.status!=401 && e.erro.mensaje){
-          this.router.navigate(['/inmuebles']);
-          console.log(e.error.mensaje);
-        }
-        return throwError(()=>e);
-      })
-    );
+  getInmuebleById(id: Number): Observable<Inmueble[]>{    
+    return this.http.get<Inmueble[]>(`${this.urlApi}/inmuebles/referencia/${id}`);
  }
+ getInmuebleBy(estado: String): Observable<Inmueble[]>{    
+  return this.http.get<Inmueble[]>(`${this.urlApi}/inmuebles/estado/${estado}`);
+}
+ 
+ update(inmueble: Inmueble): Observable<Inmueble>{
+  return this.http.put<Inmueble>(`${this.urlApi}/inmueble/${inmueble._id}`,inmueble).pipe(
+    catchError(e=>{
+      if(e.status==400){
+        return throwError(()=>e);
+      }
+      if(e.error.mensaje){
+        console.error(e.error.mensaje);
+      }
+      return throwError(()=>e);
+    })
+  );
+}
 }

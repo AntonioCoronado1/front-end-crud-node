@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InmuebleComponent } from './Inmueble/inmueble.component';
 import { FormComponent } from './Inmueble/form.component';
+import { FormComponents } from './Visita/form.component';
 import { DetalleInmuebleComponent } from './Inmueble/detalle-inmueble.component';
+import { VisitaComponent } from './Visita/visita.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DetalleInmuebleComponent } from './Inmueble/detalle-inmueble.component'
     HeaderComponent,
     InmuebleComponent,
     FormComponent,
-    DetalleInmuebleComponent
+    DetalleInmuebleComponent,
+    VisitaComponent,
+    FormComponents
   ],
   imports: [
     BrowserModule,

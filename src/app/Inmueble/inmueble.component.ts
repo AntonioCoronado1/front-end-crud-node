@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InmuebleService } from './inmueble.service';
 import { Inmueble } from './inmueble';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-inmueble',
@@ -10,9 +11,13 @@ import { Inmueble } from './inmueble';
 export class InmuebleComponent implements OnInit {
   title = 'Inmueble';     
   inmuebles: Inmueble[]=[];
-  constructor(private inmuebleService: InmuebleService) { }
+  inmueble: Inmueble={};
+  constructor(private inmuebleService: InmuebleService,
+    private router: Router,
+    private activatedRouter: ActivatedRoute) { }
   ngOnInit(): void {
     this.getInmuebles();
+    this.getInmueblesByFiltro();
   }
 
   getInmuebles(): void{    
@@ -20,7 +25,17 @@ export class InmuebleComponent implements OnInit {
        this.inmuebles = response; 
        console.log(this.inmuebles);
     });
-
-
   }
+  getInmueblesByFiltro(): void{    
+    this.activatedRouter.paramMap.subscribe(params=>{
+      let id=params.get('id');
+       if(id){
+         this.inmuebleService.getInmuebleBy(String(id)).subscribe(inmueble=>{
+            this.inmuebles=inmueble;
+            console.log(this.inmuebles);
+         })
+       }
+    }) 
+  }
+
 }

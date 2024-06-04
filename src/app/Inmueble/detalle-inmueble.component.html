@@ -6,14 +6,43 @@
         <button type="button" routerLink='/inmuebles' class="btn btn-danger m-2">Volver</button>       
       </div>
       
-      <div class="form-group row" >
+      <div class="form-group row" *ngFor="let inmueble of inmuebles" >
         <div class="form-group row">
             <label for="nombre" class="col-form-label colm-sm-2">Descripcion</label>
-            <td>{{inmuebles.descripcion}}</td>
+            {{inmueble.descripcion}}
           </div>
           <label for="nombre" class="col-form-label colm-sm-2">Direcion</label>
+          <td>{{inmueble.direccion}}</td>
           <label for="nombre" class="col-form-label colm-sm-2">Superficie</label>
+          <td>{{inmueble.superficie}}</td>
       </div>
       
     </div>
+
     </div>
+    <div class="card border-primary mb3">
+      <div class="card-header">Visitas</div>
+      <div class="card-body text-primary">
+         <h5 class="card-title">Lista de visitas</h5>
+         <div class="my-2 text-left" *ngFor="let inmueble of inmuebles">
+          <button type="button" [routerLink]="['/visita/form',inmueble.referencia]"  class="btn btn-warning m-2">Agregar Visita</button>       
+        </div>
+         <table class="table table-border table-hover text-primary">
+          <thead>
+             <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Comentario</th>
+             </tr>
+          </thead>
+          <tbody>      
+              <tr *ngFor="let visita of visitas">
+              <td>{{visita.nombre}}</td>
+              <td>{{visita.fecha}}</td>
+              <td>{{visita.comentarios}}</td>
+             </tr>
+          </tbody>
+        </table>
+        
+      </div>
+      </div>

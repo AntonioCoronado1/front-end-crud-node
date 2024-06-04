@@ -8,27 +8,33 @@
      <div class="card-body">
       <form #inmuebleForm="ngForm">
         <div class="form-group row">
+          <label for="referencia" class="col-form-label colm-sm-2">Referencia</label>
+           <div class="col-sm-6">            
+               <input type="text" class="form-control" [(ngModel)]="inmuebles.referencia" id="referencia" name="referencia"  required style="width: 500px;">
+            </div>
+        </div>
+        <div class="form-group row">
           <label for="nombre" class="col-form-label colm-sm-2">Descripcion</label>
            <div class="col-sm-6">            
-               <input type="text" class="form-control" [(ngModel)]="inmueble.descripcion" id="descripcion" name="descripcion"  required style="width: 500px;">
+               <input type="text" class="form-control" [(ngModel)]="inmuebles.descripcion" id="descripcion" name="descripcion"  required style="width: 500px;">
             </div>
         </div>
         <div class="form-group row">
           <label for="apellido" class="col-form-label colm-sm-2">Direccion</label>
            <div class="col-sm-6"> 
-             <input type="text" class="form-control" [(ngModel)]="inmueble.direccion" name="direccion"  required style="width: 500px;">            
+             <input type="text" class="form-control" [(ngModel)]="inmuebles.direccion" name="direccion"  required style="width: 500px;">            
            </div>
         </div>     
         <div class="form-group row">
           <label for="superficie" class="col-form-label colm-sm-2">Superficie</label>
            <div class="col-sm-6">            
-            <input type="number" class="form-control" [(ngModel)]="inmueble.superficie" name="superficie"  required style="width: 500px;">          
+            <input type="number" class="form-control" [(ngModel)]="inmuebles.superficie" name="superficie"  required style="width: 500px;">          
            </div>
         </div> 
         <div class="form-group row">
             <label for="tipo" class="col-form-label colm-sm-2">Tipo de inmueble</label>
              <div class="col-sm-6">            
-                 <select  class="form-control" [(ngModel)]="inmueble.tipo" name="tipo" style="width: 500px;">
+                 <select  class="form-control" [(ngModel)]="inmuebles.tipo" name="tipo" style="width: 500px;">
                    <option value="">---Seleccionar un tipo----</option>
                    <option value="PISO NUEVO"> Piso nuevo </option>
                    <option value="PISO DE OCASION"> Piso de ocasion </option>
@@ -41,7 +47,7 @@
           <div class="form-group row">
             <label for="estado" class="col-form-label colm-sm-2">Estado</label>
              <div class="col-sm-6">            
-                 <select  class="form-control" [(ngModel)]="inmueble.estado" name="estado" style="width: 500px;">
+                 <select  class="form-control" [(ngModel)]="inmuebles.estado" name="estado" style="width: 500px;">
                    <option value="">---Seleccionar un estado----</option>
                    <option value="VENTA"> Venta </option>
                    <option value="ALQUILER"> Alquiler </option>
@@ -52,13 +58,13 @@
           <div class="form-group row">
             <label for="nom_propietario" class="col-form-label colm-sm-2">Nombre del propietario</label>
              <div class="col-sm-6">            
-              <input type="text" class="form-control" [(ngModel)]="inmueble.nom_propietario" name="nom_propietario"  required style="width: 500px;">          
+              <input type="text" class="form-control" [(ngModel)]="inmuebles.nom_propietario" name="nom_propietario"  required style="width: 500px;">          
              </div>
           </div> 
           <div class="form-group row">
             <label for="superficie" class="col-form-label colm-sm-2">Telefono del propietario</label>
              <div class="col-sm-6">            
-              <input type="number" class="form-control" [(ngModel)]="inmueble.tel_propietario" name="tel_propietario"  required style="width: 500px;">          
+              <input type="number" class="form-control" [(ngModel)]="inmuebles.tel_propietario" name="tel_propietario"  required style="width: 500px;">          
              </div>
           </div>
 

@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: 'https://modest-courtesy-production.up.railway.app',
+    apiUrl: 'http://localhost:8080',
      production: false
 };
