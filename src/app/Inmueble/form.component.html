@@ -44,8 +44,119 @@
                  </select>
              </div>
           </div>
+
+          <div class="form-group row" *ngIf="inmuebles?.tipo=='VILLA'">
+            <label for="urbanizacion"   class="col-form-label colm-sm-2">Urbanizacion</label>
+             <div class="col-sm-6"> 
+               <input type="text" class="form-control" [(ngModel)]="inmuebles.urbanizacion" name="urbanizacion"  required style="width: 500px;">            
+             </div>
+          </div> 
+          <div class="form-group row" *ngIf="inmuebles?.tipo=='VILLA'">
+            <label for="tamaño"   class="col-form-label colm-sm-2">Tamaño de la Parcela</label>
+             <div class="col-sm-6"> 
+               <input type="number" class="form-control" [(ngModel)]="inmuebles.tamano" name="tamaño"  required style="width: 500px;">            
+             </div>
+          </div>
+          <div class="form-group row" *ngIf="inmuebles?.tipo=='VILLA'||inmuebles?.tipo=='PISO NUEVO'||inmuebles?.tipo=='PISO DE OCASION'||inmuebles?.tipo=='CASA'">
+            <label for="habitaciones"   class="col-form-label colm-sm-2">Habitaciones</label>
+             <div class="col-sm-6"> 
+               <input type="number" class="form-control" [(ngModel)]="inmuebles.habitaciones" name="habitaciones"  required style="width: 500px;">            
+             </div>
+          </div> 
+          <div class="form-group row" *ngIf="inmuebles?.tipo=='VILLA'||inmuebles?.tipo=='PISO NUEVO'||inmuebles?.tipo=='PISO DE OCASION'||inmuebles?.tipo=='CASA'">
+            <label for="baños"   class="col-form-label colm-sm-2">Baños</label>
+             <div class="col-sm-6"> 
+               <input type="number" class="form-control" [(ngModel)]="inmuebles.banios" name="baños"  required style="width: 500px;">            
+             </div>
+          </div>
+          <div class="form-group row" *ngIf="inmuebles?.tipo=='VILLA'||inmuebles?.tipo=='PISO NUEVO'||inmuebles?.tipo=='PISO DE OCASION'||inmuebles?.tipo=='CASA'">
+            <label for="cocinas"   class="col-form-label colm-sm-2">Cocinas</label>
+             <div class="col-sm-6"> 
+               <input type="number" class="form-control" [(ngModel)]="inmuebles.cocinas" name="cocinas"  required style="width: 500px;">            
+             </div>
+          </div>
+          <div class="form-group row"*ngIf="inmuebles?.tipo=='VILLA'||inmuebles?.tipo=='PISO NUEVO'||inmuebles?.tipo=='PISO DE OCASION'||inmuebles?.tipo=='CASA'">
+            <label for="cocinas"   class="col-form-label colm-sm-2">Puerta Blindada </label>
+            <div > 
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.puerta_blindada" [value]="true" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexCheckDefault">
+             Si
+            </label>
+          </div>
+          <div>
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.puerta_blindada" [value]="false" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexCheckDefault">
+            No
+            </label>
+          </div>
+          </div>
+          <div class="form-group row"*ngIf="inmuebles?.tipo=='VILLA'||inmuebles?.tipo=='PISO NUEVO'||inmuebles?.tipo=='PISO DE OCASION'||inmuebles?.tipo=='CASA'">
+            <label for="parqueadero"   class="col-form-label colm-sm-2">Parqueadero </label>
+            <div > 
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.parqueadero" [value]="true" name="flexRadioDefault2" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexCheckDefault">
+             Si
+            </label>
+          </div>
+          <div>
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.parqueadero" [value]="false" name="flexRadioDefault2" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexCheckDefault">
+            No
+            </label>
+          </div>
+          </div>
+          <div class="form-group row" *ngIf="inmuebles?.tipo=='LOCAL'">
+            <label for="num_puertas"   class="col-form-label colm-sm-2">Numero de puertas</label>
+             <div class="col-sm-6"> 
+               <input type="number" class="form-control" [(ngModel)]="inmuebles.num_puertas" name="num_puertas"  required style="width: 500px;">            
+             </div>
+          </div>
+          <div class="form-group row"*ngIf="inmuebles?.tipo=='LOCAL'">
+            <label for="parqueadero"   class="col-form-label colm-sm-2">Es Diafono: </label>
+            <div > 
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.diafono" [value]="true" name="flexRadioDefault3" id="flexRadioDefault3">
+            <label class="form-check-label" for="flexCheckDefault">
+             Si
+            </label>
+          </div>
+          <div>
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.diafono" [value]="false" name="flexRadioDefault3" id="flexRadioDefault3">
+            <label class="form-check-label" for="flexCheckDefault">
+            No
+            </label>
+          </div>
+          </div>
+          <div class="form-group row"*ngIf="inmuebles?.tipo=='LOCAL'">
+            <label for="parqueadero"   class="col-form-label colm-sm-2">Posee Aire acondicionado: </label>
+            <div > 
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.acondicionado" [value]="true" name="flexRadioDefault4" id="flexRadioDefault4">
+            <label class="form-check-label" for="flexCheckDefault">
+             Si
+            </label>
+          </div>
+          <div>
+            <input class="form-check-input" type="radio" [(ngModel)]="inmuebles.acondicionado" [value]="false" name="flexRadioDefault4" id="flexRadioDefault4">
+            <label class="form-check-label" for="flexCheckDefault">
+            No
+            </label>
+          </div>
+          </div>
+          <div class="form-group row" *ngIf="inmuebles?.tipo=='LOCAL'||inmuebles?.tipo=='PISO NUEVO'||inmuebles?.tipo=='PISO DE OCASION'||inmuebles?.tipo=='CASA'">
+            <label for="zona_ciudad" class="col-form-label colm-sm-2">Zona de la Ciudad</label>
+             <div class="col-sm-6">            
+                 <select  class="form-control" [(ngModel)]="inmuebles.zona_ciudad" name="zona_ciudad" style="width: 500px;">
+                   <option value="">---Seleccionar una zona de la ciudad----</option>
+                   <option value="Centro"> Centro </option>
+                   <option value="Norte"> Norte </option>
+                   <option value="Sur"> Sur </option>
+                   <option value="Oriente"> Oriente </option>
+                   <option value="Occidente"> Occidente </option>
+                 </select>
+             </div>
+          </div>
+
           <div class="form-group row">
-            <label for="estado" class="col-form-label colm-sm-2">Estado</label>
+            <label for="estado" class="col-form-label colm-sm-2">Estado de Oferta</label>
              <div class="col-sm-6">            
                  <select  class="form-control" [(ngModel)]="inmuebles.estado" name="estado" style="width: 500px;">
                    <option value="">---Seleccionar un estado----</option>
@@ -55,7 +166,19 @@
                  </select>
              </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group row" *ngIf="inmuebles?.estado=='ALQUILER'||inmuebles?.estado=='VENTA O ALQUILER'">
+            <label for="precio_alquiler" class="col-form-label colm-sm-2">Precio de Alquiler</label>
+             <div class="col-sm-6">            
+              <input type="number" class="form-control" [(ngModel)]="inmuebles.precio_alquiler" name="precio_alquiler"  required style="width: 500px;">          
+             </div>
+          </div>
+          <div class="form-group row" *ngIf="inmuebles?.estado=='VENTA'||inmuebles?.estado=='VENTA O ALQUILER'">
+            <label for="precio_venta" class="col-form-label colm-sm-2">Precio de Venta</label>
+             <div class="col-sm-6">            
+              <input type="number" class="form-control" [(ngModel)]="inmuebles.precio_venta" name="precio_venta"  required style="width: 500px;">          
+             </div>
+          </div>
+          <div class="form-group row" >
             <label for="nom_propietario" class="col-form-label colm-sm-2">Nombre del propietario</label>
              <div class="col-sm-6">            
               <input type="text" class="form-control" [(ngModel)]="inmuebles.nom_propietario" name="nom_propietario"  required style="width: 500px;">          
