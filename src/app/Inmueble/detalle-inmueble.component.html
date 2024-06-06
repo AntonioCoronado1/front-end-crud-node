@@ -1,20 +1,36 @@
 <div class="card border-primary mb3">
     <div class="card-header">Inmuebles</div>
-    <div class="card-body text-primary">
+    <div class="card-body ">
        <h5 class="card-title">Detalle del Inmueble</h5>
       <div class="my-2 text-left">
         <button type="button" routerLink='/inmuebles' class="btn btn-danger m-2">Volver</button>       
       </div>
       
       <div class="form-group row" *ngFor="let inmueble of inmuebles" >
-        <div class="form-group row">
-            <label for="nombre" class="col-form-label colm-sm-2">Descripcion</label>
-            {{inmueble.descripcion}}
-          </div>
-          <label for="nombre" class="col-form-label colm-sm-2">Direcion</label>
-          <td>{{inmueble.direccion}}</td>
-          <label for="nombre" class="col-form-label colm-sm-2">Superficie</label>
-          <td>{{inmueble.superficie}}</td>
+          <h5>Descripcion: {{inmueble.descripcion}}</h5>
+          <h5>Direcion: {{inmueble.direccion}}</h5>
+          <h5>Superficie: {{inmueble.superficie}} M2</h5>
+          <h5>Tipo de Inmueble: {{inmueble.tipo}}</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'">Urbanización: {{inmueble.urbanizacion}}</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'">Tamaño de la Parcela: {{inmueble.tamano}}</h5>
+          <h5 *ngIf="inmueble.tipo=='LOCAL'||inmueble.tipo=='PISO NUEVO'||inmueble.tipo=='PISO DE OCASION'||inmueble.tipo=='CASA'">Zono de la Ciudad: {{inmueble.zona_ciudad}}</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'||inmueble.tipo=='PISO NUEVO'||inmueble.tipo=='PISO DE OCASION'||inmueble.tipo=='CASA'">Habitaciones: {{inmueble.habitaciones}}</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'||inmueble.tipo=='PISO NUEVO'||inmueble.tipo=='PISO DE OCASION'||inmueble.tipo=='CASA'">Baños: {{inmueble.banios}}</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'||inmueble.tipo=='PISO NUEVO'||inmueble.tipo=='PISO DE OCASION'||inmueble.tipo=='CASA'">Cocinas: {{inmueble.cocinas}}</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'&&inmueble.puerta_blindada ||inmueble.tipo=='PISO NUEVO'&&inmueble.puerta_blindada ||inmueble.tipo=='PISO DE OCASION'&&inmueble.puerta_blindada ||inmueble.tipo=='CASA'&&inmueble.puerta_blindada  ">Puerta Blindada: Si</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'&&!inmueble.puerta_blindada ||inmueble.tipo=='PISO NUEVO'&&!inmueble.puerta_blindada ||inmueble.tipo=='PISO DE OCASION'&&!inmueble.puerta_blindada ||inmueble.tipo=='CASA'&&!inmueble.puerta_blindada  ">Puerta Blindada: No</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'&&inmueble.parqueadero ||inmueble.tipo=='PISO NUEVO'&&inmueble.parqueadero ||inmueble.tipo=='PISO DE OCASION'&&inmueble.parqueadero ||inmueble.tipo=='CASA'&&inmueble.parqueadero">Parquadero: Si</h5>
+          <h5 *ngIf="inmueble.tipo=='VILLA'&&!inmueble.parqueadero ||inmueble.tipo=='PISO NUEVO'&&!inmueble.parqueadero ||inmueble.tipo=='PISO DE OCASION'&&!inmueble.parqueadero ||inmueble.tipo=='CASA'&&!inmueble.parqueadero  ">Parquadero: No</h5>
+          <h5 *ngIf="inmueble.tipo=='LOCAL'">Numero de Puertas: {{inmueble.num_puertas}}</h5>
+          <h5 *ngIf="inmueble.tipo=='LOCAL'&&inmueble.diafono">Es diafono: Si</h5>
+          <h5 *ngIf="inmueble.tipo=='LOCAL'&&!inmueble.diafono">Es diafono: No</h5>
+          <h5 *ngIf="inmueble.tipo=='LOCAL'&&inmueble.acondicionado">Tiene aire acondicionado: Si</h5>
+          <h5 *ngIf="inmueble.tipo=='LOCAL'&&!inmueble.acondicionado">Tiene aire acondicionado: No</h5>
+          <h5>Oferta: {{inmueble.estado}}</h5>
+          <h5 *ngIf="inmueble.estado=='ALQUILER'||inmueble.estado=='VENTA O ALQUILER'">Precio de Alquiler: ${{inmueble.precio_alquiler}}</h5>
+          <h5 *ngIf="inmueble.estado=='VENTA'||inmueble.estado=='VENTA O ALQUILER'">Precio de Venta: ${{inmueble.precio_venta}}</h5>
+          <h5>Nombre del Propietario: {{inmueble.nom_propietario}}</h5>
+          <h5>Telefono del Propietario: {{inmueble.tel_propietario}}</h5>
       </div>
       
     </div>

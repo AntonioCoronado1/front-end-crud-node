@@ -12,6 +12,7 @@ import { FormComponent } from './Inmueble/form.component';
 import { FormComponents } from './Visita/form.component';
 import { DetalleInmuebleComponent } from './Inmueble/detalle-inmueble.component';
 import { VisitaComponent } from './Visita/visita.component';
+import { LoginComponent } from './Usuario/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { VisitaComponent } from './Visita/visita.component';
     FormComponent,
     DetalleInmuebleComponent,
     VisitaComponent,
-    FormComponents
+    FormComponents,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

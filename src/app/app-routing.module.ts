@@ -4,13 +4,17 @@ import { InmuebleComponent} from '../app/Inmueble/inmueble.component';
 import { FormComponent } from './Inmueble/form.component';
 import { DetalleInmuebleComponent } from './Inmueble/detalle-inmueble.component';
 import { FormComponents } from './Visita/form.component';
+import { LoginComponent } from './Usuario/login.component';
+import { authGuard } from './Usuario/auth.guard';
+
 
 const routes: Routes = [
-  { path: 'inmuebles', component: InmuebleComponent },
-  { path: 'inmuebles/:id', component: InmuebleComponent },
-  { path: 'inmuebles/new/form', component: FormComponent },
-  { path: 'inmuebles/view/:id', component: DetalleInmuebleComponent},
-  { path: 'visita/form/:id', component: FormComponents},
+  { path: 'inmuebles', component: InmuebleComponent, canActivate:[authGuard] },
+  { path: 'inmuebles/:id', component: InmuebleComponent, canActivate:[authGuard]},
+  { path: 'inmuebles/new/form', component: FormComponent ,canActivate:[authGuard]},
+  { path: 'inmuebles/view/:id', component: DetalleInmuebleComponent ,canActivate:[authGuard]},
+  { path: 'visita/form/:id', component: FormComponents,canActivate:[authGuard]},
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
