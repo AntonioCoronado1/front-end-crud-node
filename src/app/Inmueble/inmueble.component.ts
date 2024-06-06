@@ -12,6 +12,8 @@ export class InmuebleComponent implements OnInit {
   title = 'Inmueble';     
   inmuebles: Inmueble[]=[];
   inmueble: Inmueble={};
+  referencia = 0;
+
   constructor(private inmuebleService: InmuebleService,
     private router: Router,
     private activatedRouter: ActivatedRoute) { }

@@ -5,7 +5,9 @@
       <div class="my-2 text-left">
         <button type="button" routerLink='/inmuebles' class="btn btn-danger m-2">Volver</button>       
       </div>
-      
+      <div *ngIf="inmuebles?.length==0" class="alert alert-info">
+          No se encontro un inmueble con esa referencia
+       </div>
       <div class="form-group row" *ngFor="let inmueble of inmuebles" >
           <h5>Descripcion: {{inmueble.descripcion}}</h5>
           <h5>Direcion: {{inmueble.direccion}}</h5>
@@ -36,7 +38,7 @@
     </div>
 
     </div>
-    <div class="card border-primary mb3">
+    <div *ngIf="inmuebles?.length!=0" class="card border-primary mb3">
       <div class="card-header">Visitas</div>
       <div class="card-body text-primary">
          <h5 class="card-title">Lista de visitas</h5>

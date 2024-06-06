@@ -1,18 +1,28 @@
 <div class="card border-primary mb3">
     <div class="card-header">Inmuebles</div>
-    <div>
+    <div class="card-body ">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <h5>Filtro de Oferta para Inmuebles:</h5>
+         <h5>Filtro de Oferta para Inmuebles:  </h5>
          <button type="button" routerLink='/inmuebles/' class="btn btn-primary">Todo</button>
          <button type="button" routerLink='/inmuebles/VENTA' class="btn btn-primary">Solo Venta</button>
          <button type="button" routerLink='/inmuebles/ALQUILER' class="btn btn-primary">Solo Alquiler</button>
          <button type="button" routerLink='/inmuebles/VENTA O ALQUILER' class="btn btn-primary">Venta o Alquiler</button>
       </nav>
-     </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         
+         <h5>Buscar por numero de referencia: </h5>        
+         <input class="form-control me-2" type="number"  [(ngModel)]="referencia" name="superficie" style="width: 100px;">          
+         <button type="button"[routerLink]="['/inmuebles/view/',referencia]" class="btn btn-info">Buscar</button>
+      </nav>
+    </div>
+      
+         
+      
+     
     <div class="card-body text-primary">
        <h5 class="card-title">Listado de Inmuebles</h5>
       <div class="my-2 text-left">
-        <button type="button" routerLink='/inmuebles/new/form' class="btn btn-success">Crear</button>
+         <button type="button" routerLink='/inmuebles/new/form' class="btn btn-success">Crear</button>
       </div>
       
       <div *ngIf="inmuebles?.length==0" class="alert alert-info">
@@ -34,8 +44,7 @@
         </thead>
         <tbody>      
             <tr *ngFor="let inmueble of inmuebles">
-               <td><button type="button" [routerLink]="['/inmuebles/view',inmueble.referencia]" class="btn btn-info" >Ver</button></td>
-
+            <td><button type="button" [routerLink]="['/inmuebles/view',inmueble.referencia]" class="btn btn-info" >Ver</button></td>
             <td>{{inmueble.referencia}}</td>
             <td>{{inmueble.descripcion}}</td>
             <td>{{inmueble.direccion}}</td>

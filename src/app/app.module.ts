@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HttpClient} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,6 +13,7 @@ import { FormComponents } from './Visita/form.component';
 import { DetalleInmuebleComponent } from './Inmueble/detalle-inmueble.component';
 import { VisitaComponent } from './Visita/visita.component';
 import { LoginComponent } from './Usuario/login.component';
+import { AuthInterceptor } from './Usuario/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { LoginComponent } from './Usuario/login.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
