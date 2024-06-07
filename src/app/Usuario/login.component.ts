@@ -17,7 +17,7 @@ export class LoginComponent {
     private router: Router) { }
 
     login() {
-      console.log(this.usuario);
+      
       this.authservice.login(this.usuario)
         .subscribe(
           () => {

@@ -25,7 +25,7 @@ export class InmuebleComponent implements OnInit {
   getInmuebles(): void{    
     this.inmuebleService.getInmuebles().subscribe(response => {
        this.inmuebles = response; 
-       console.log(this.inmuebles);
+       
     });
   }
   getInmueblesByFiltro(): void{    
@@ -34,7 +34,7 @@ export class InmuebleComponent implements OnInit {
        if(id){
          this.inmuebleService.getInmuebleBy(String(id)).subscribe(inmueble=>{
             this.inmuebles=inmueble;
-            console.log(this.inmuebles);
+            
          })
        }
     }) 

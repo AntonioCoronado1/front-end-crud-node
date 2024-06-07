@@ -41,7 +41,7 @@ export class DetalleInmuebleComponent  implements OnInit {
        if(id){
          this.visitaService.getVisitas(Number(id)).subscribe(visita=>{
             this.visitas=visita;
-            console.log(this.visitas);
+            
          })
        }
     })
